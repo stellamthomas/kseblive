@@ -225,7 +225,7 @@
               </span>
             </li>
             <li class="nav-item">
-              <a  class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter">
+              <a  class="nav-link"  data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer;">
                 Login
               </a>
             </li>
@@ -249,18 +249,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="logincheck.php" method="POST">
           <div class="form-group">
-            <input type="email" class="form-control" required="" placeholder="Email">
+            <input type="email" class="form-control" name="email" required="" placeholder="Email">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" required="" placeholder="password">
+            <input type="password" class="form-control" name="pass" required="" placeholder="password">
           </div>
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success">Login</button></form>
+        <button type="submit" class="btn btn-success">Login</button></form>
       </div>
     </div>
   </div>
