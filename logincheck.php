@@ -28,13 +28,14 @@ session_start();
 			setcookie("logined",1);
 			if ($c==0)
 			{
-				
+				$_SESSION["logined"] = 1;
 				header("location:admin/adminhome.php");
 			}
 			else if($c==1)
 			{
 				if($e==1)
 				{
+					$_SESSION["logined"] = 1;
 					header("location:customerhome.php");
 				}
 				else
@@ -45,14 +46,17 @@ session_start();
 			}
 			else if($c==2)
 			{
+				$_SESSION["logined"] = 1;
 				header("location:ksebengineer/index.php");
 			}
 			else if($c==3)
 			{
+				$_SESSION["logined"] = 1;
 				header("location:staff/index.php");
 			}
 			else
 			{
+				$_SESSION["logined"] = 1;
 				header("location:lineman/index.php");
 			}
 		}

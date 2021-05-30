@@ -1,4 +1,7 @@
 <?php
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
   include 'connection.php';
   include 'lmheader.php';
 
@@ -92,4 +95,9 @@ echo "<font color='red'><b>NA</b></font>";
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'lmfooter.php'; ?>
+            <?php include 'lmfooter.php'; }
+  else
+  {
+    Header("location:../index.php");
+  }
+?>

@@ -28,7 +28,7 @@
 
 
   $engkey=md5(microtime());
-  $billkey=substr($engkey,0,10);
+  $billkey=substr($engkey,0,8);
 
 
 	$sql2="insert into tb_bill(billkey,billdate,duedate,dcdate,initialread,finalread,unitsused,fixedcharge,energycharge,total,consumerno,phno,status,staffid,engid) values

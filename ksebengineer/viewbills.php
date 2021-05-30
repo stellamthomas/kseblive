@@ -1,8 +1,10 @@
-
 <?php
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
   include 'connection.php';
   include 'engheader.php';
-  $sql = "select tb_bill.*,tb_connectionreg.fname as fn,tb_connectionreg.lname as ln,tb_connectionreg.address as addr,tb_connectionreg.conno as conn from tb_bill inner join tb_connectionreg on tb_bill.consumerno=tb_connectionreg.conno where tb_bill.engid='".$_COOKIE['lkey']."' order by tb_bill.id desc"; //echo $sql;exit;
+  $sql = "select tb_bill.*,tb_connectionreg.fname as fn,tb_connectionreg.lname as ln,tb_connectionreg.address as addr,tb_connectionreg.conno as conn from tb_bill inner join tb_connectionreg on tb_bill.consumerno=tb_connectionreg.conno where tb_bill.engid='".$_COOKIE['lkey']."' and tb_bill.total!='0' order by tb_bill.id desc"; //echo $sql;exit;
   $result = mysqli_query($conn,$sql);
 ?>
 
@@ -30,6 +32,8 @@
                                             <th>Bill Date</th>
                                             <th>Due Date</th>
                                             <th>DC Date</th>
+                                            <th>Initial Reading</th>
+                                            <th>Last Reading</th>
                                             <th>Units Used</th>
                                             <th>Amount</th>
                                             <th>Status</th>
@@ -44,6 +48,8 @@
                                             <th>Bill Date</th>
                                             <th>Due Date</th>
                                             <th>DC Date</th>
+                                            <th>Initial Reading</th>
+                                            <th>Final Reading</th>
                                             <th>Units Used</th>
                                             <th>Amount</th>
                                             <th>Status</th>
@@ -61,6 +67,8 @@
                                             <td><?php echo $row['billdate']; ?></td>
                                             <td><?php echo $row['duedate']; ?></td>
                                             <td><?php echo $row['dcdate']; ?></td>
+                                            <td><?php echo $row['initialread']; ?></td>
+                                            <td><?php echo $row['finalread']; ?></td>
                                             <td><?php echo $row['unitsused']; ?></td>
                                             <td><?php echo $row['total']; ?></td>
                                             <td>
@@ -94,4 +102,9 @@ else
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'engfooter.php'; ?>
+            <?php include 'engfooter.php'; }
+  else
+  {
+  Header("location:../index.php");
+  }
+?>

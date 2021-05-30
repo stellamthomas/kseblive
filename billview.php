@@ -1,6 +1,6 @@
 <?php 
     include 'mainheader.php'; ?>
-
+    <script src="validation/billview.js"></script>
       <section class="section section-top section-full">
 
       <!-- Cover -->
@@ -22,18 +22,20 @@
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			               				<input type="text" name="conno" id="first_name" class="form-control input-sm" placeholder="Consumer Number">
+			               				<input type="text" name="conno"  class="form-control input-sm" placeholder="Consumer Number" id="pincode" onkeyup="distPin()">
+                  <span style="color: red;font-size: 14px" id="f8"></span>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" name="phno" id="last_name" class="form-control input-sm" placeholder="Phone Number">
+			    						<input type="text" name="phno"  class="form-control input-sm" placeholder="Phone Number" id="phone" onkeyup="phoneUser()">
+                  <span style="color: red;font-size: 14px" id="f5"></span>
 			    					</div>
 			    				</div>
 			    			</div>
 
 			    			
-			    			<input type="submit" value="View Bill" class="btn btn-info btn-block" onclick="return checkBill()">
+			    			<input type="submit" value="View Bill" class="btn btn-info btn-block"  onclick="return checkAll()"> 
 			    		
 			    		</form>
 

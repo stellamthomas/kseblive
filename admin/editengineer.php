@@ -5,7 +5,7 @@
   $sql = "select * from tb_engineerreg inner join tb_login where tb_login.id=tb_engineerreg.loginid and tb_engineerreg.engkey='".$_GET['t']."'";
   $result = mysqli_query($conn,$sql);
 ?>
-
+    <script src="../validation/ksebengineer.js"></script>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -28,27 +28,36 @@
               			    			<div class="row">
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
               			    					<div class="form-group">
-              			               				<input type="text" name="fname" class="form-control input-sm" placeholder="First Name" value="<?php echo $row['fname']; ?>">
+              			               				<input type="text" name="fname" class="form-control input-sm" placeholder="First Name" value="<?php echo $row['fname']; ?>" id="fname" onkeyup="firstName()">
+                  <span style="color: red;font-size: 14px" id="f1"></span>
+
               			    					</div>
               			    				</div>
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
               			    					<div class="form-group">
-              			    						<input type="text" name="lname" class="form-control input-sm" placeholder="Last Name" value="<?php echo $row['lname']; ?>">
+              			    						<input type="text" name="lname" class="form-control input-sm" placeholder="Last Name" value="<?php echo $row['lname']; ?>" id="lname" onkeyup="lastName()">
+                  <span style="color: red;font-size: 14px" id="f2"></span>
+
               			    					</div>
               			    				</div>
               			    			</div>
 
               			    			<div class="form-group">
-              			    				<input type="email" name="email"  class="form-control input-sm" placeholder="Email Address" value="<?php echo $row['username']; ?>" readonly>
+              			    				<input type="email" name="email"  class="form-control input-sm" placeholder="Email Address" value="<?php echo $row['username']; ?>" readonly id="email" onkeyup="emailUser()">
+              <span style="color: red;font-size: 14px" id="f4"></span>
+
               			    			</div>
               			    			<div class="form-group">
-              			    				<textarea rows="2" name="address" class="form-control input-sm" placeholder="Address"><?php echo $row['address']; ?></textarea>
-              			    			</div>
+              			    				<textarea rows="2" name="address" class="form-control input-sm" placeholder="Address" id="address" onkeyup="addrUser()"><?php echo $row['address']; ?></textarea>
+              			    			</div></textarea>
+              <span style="color: red;font-size: 14px" id="f3"></span>
 
               			    			<div class="row">
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
               			    					<div class="form-group">
-              			               				<input type="text" name="phno" class="form-control input-sm" placeholder="Phone Number" value="<?php echo $row['phno']; ?>">
+              			               				<input type="text" name="phno" class="form-control input-sm" placeholder="Phone Number" value="<?php echo $row['phno']; ?>" id="phone" onkeyup="phoneUser()">
+                                          <span style="color: red;font-size: 14px" id="f5"></span>
+
               			    					</div>
               			    				</div>
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
@@ -71,30 +80,33 @@
                               <div class="row">
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
                                   <div class="form-group">
-              			               				<select class="form-control bfh-states" data-country="US" data-state="CA" name="district">
-              			               					<option>District</option>
+              			               				<select class="form-control bfh-states" data-country="US" data-state="CA" name="district" id="district" onclick="distUser()">
+              			               					<option value="null">District</option>
               			               					<option value="Idukki" <?=$row['district'] == 'Idukki' ? ' selected="selected"' : '';?>>Idukki</option>
               			               					<option value="Kottayam" <?=$row['district'] == 'Kottayam' ? ' selected="selected"' : '';?>>Kottayam</option>
               			               				</select>
-
+                                          <span style="color: red;font-size: 14px" id="f6"></span>
               			    					</div>
               			    				</div>
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
                                   <div class="form-group">
-                                    <select class="form-control bfh-states" data-country="US" data-state="CA" name="section">
-                                      <option>Section Code</option>
+                                    <select class="form-control bfh-states" data-country="US" data-state="CA" name="section" id="districts" onclick="sectionUser()">
+                                      <option value="null">Section Code</option>
                                       <option value="Mundakayam [5302]" <?=$row['section'] == 'Mundakayam [5302]' ? ' selected="selected"' : '';?>>Mundakayam [5302]</option>
                                       <option value="Kuttikanam [5303]" <?=$row['section'] == 'Kuttikanam [5303]' ? ' selected="selected"' : '';?>>Kuttikanam [5303]</option>
                                     </select>
+                                    <span style="color: red;font-size: 14px" id="f6s"></span>
               			    					</div>
               			    				</div>
               			    			</div>
 
 
                               <div class="form-group">
-                                <input type="text" name="pincode" class="form-control input-sm" placeholder="Pincode" value="<?php echo $row['pincode']; ?>">
+                                <input type="text" name="pincode" class="form-control input-sm" placeholder="Pincode" value="<?php echo $row['pincode']; ?>" id="pincode" onkeyup="distPin()">
+                  <span style="color: red;font-size: 14px" id="f7"></span>
+
                               </div>
-  			    			<input type="submit" value="Update Engineer" class="btn btn-info btn-block">
+  			    			<input type="submit" value="Update Engineer" class="btn btn-info btn-block" onclick="return checkNewconn()" >
 
               			    		</form>
 <?php } ?>

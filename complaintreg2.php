@@ -2,7 +2,6 @@
   session_start();
 	include 'connection.php';
 
-	$name = $_POST['fname'];
 	$section = $_POST['section'];
 	$type = $_POST['comtype'];
 	$desc = $_POST['comdesc'];

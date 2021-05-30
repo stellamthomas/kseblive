@@ -1,4 +1,7 @@
-<?php 
+<?php
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
 include 'staffheader.php';
 include 'connection.php';
 $sql = "select * from tb_connectionreg where filekey='".$_GET['t']."'";//echo $sql;exit;
@@ -12,7 +15,7 @@ while ($row=mysqli_fetch_array($result))
 
  ?>
 
-
+    <script src="../validation/addbill.js"></script>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -33,12 +36,15 @@ while ($row=mysqli_fetch_array($result))
               			    			<div class="row">
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
               			    					<div class="form-group">
-              			               				<input type="text" name="duedate" class="form-control input-sm" placeholder="Due Date" onfocus="(this.type='date')">
+              			               				<input type="text" name="duedate" class="form-control input-sm" placeholder="Due Date" onfocus="(this.type='date')" id="sdate" onfocusout="startDate()">
+                  <span style="color: red;font-size: 14px" id="s1"></span>
+
               			    					</div>
               			    				</div>
               			    				<div class="col-xs-6 col-sm-6 col-md-6">
               			    					<div class="form-group">
-              			    						<input type="text" name="dcdate" class="form-control input-sm" placeholder="Disconnection Date" onfocus="(this.type='date')">
+              			    						<input type="text" name="dcdate" class="form-control input-sm" placeholder="Disconnection Date" onfocus="(this.type='date')" id="edate" onfocusout="endDate()">
+                  <span style="color: red;font-size: 14px" id="e1"></span>
               			    					</div>
               			    				</div>
               			    			</div>
@@ -46,12 +52,14 @@ while ($row=mysqli_fetch_array($result))
                               <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                   <div class="form-group">
-                                          <input type="text" name="initread" class="form-control input-sm" placeholder="Last Reading" >
+                                          <input type="text" name="initread" class="form-control input-sm" placeholder="Last Reading" id='tot' onkeyup="totTravel()">
+                  <span style="color: red;font-size: 14px" id="top2"></span>
                                   </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                   <div class="form-group">
-                                    <input type="text" name="finalread" class="form-control input-sm" placeholder="Final Reading" >
+                                    <input type="text" name="finalread" class="form-control input-sm" placeholder="Final Reading" id='tot1' onkeyup="totTravel1()">
+                  <span style="color: red;font-size: 14px" id="top21"></span>
                                   </div>
                                 </div>
                               </div>
@@ -60,13 +68,15 @@ while ($row=mysqli_fetch_array($result))
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                   <div class="form-group">
                                     <span>Fixed Charge</span>
-                                          <input type="text" name="fixcharge" class="form-control input-sm" placeholder="Fixed Charge" value="120">
+                                          <input type="text" name="fixcharge" class="form-control input-sm" placeholder="Fixed Charge" value="120" id='tot2' onkeyup="totTravel2()">
+                  <span style="color: red;font-size: 14px" id="top22"></span>
                                   </div>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6">
                                   <div class="form-group">
                                     <span>Energy Charge</span>
-                                    <input type="text" name="energycharge" class="form-control input-sm" placeholder="Energy Charge" value="8" >
+                                    <input type="text" name="energycharge" class="form-control input-sm" placeholder="Energy Charge" value="8" id='tot3' onkeyup="totTravel3()">
+                  <span style="color: red;font-size: 14px" id="top23"></span>
                                   </div>
                                 </div>
                               </div>
@@ -80,7 +90,7 @@ while ($row=mysqli_fetch_array($result))
               			    			</div>
 
               			    		
-  			    			<input type="submit" value="Add Bill" class="btn btn-info btn-block" >
+  			    			<input type="submit" value="Add Bill" class="btn btn-info btn-block" onclick="return checkAlls()">
 
               			    		</form>
 
@@ -92,4 +102,9 @@ while ($row=mysqli_fetch_array($result))
 
                 </div>
                 <!-- /.container-fluid -->
-<?php include 'stafffooter.php'; ?>
+<?php include 'stafffooter.php';  }
+  else
+  {
+  Header("location:../index.php");
+  }
+?>

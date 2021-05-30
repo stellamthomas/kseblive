@@ -1,4 +1,7 @@
 <?php
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
   include 'connection.php';
   include 'staffheader.php';
 
@@ -97,4 +100,9 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'stafffooter.php'; ?>
+            <?php include 'stafffooter.php';  }
+  else
+  {
+  Header("location:../index.php");
+  }
+?>

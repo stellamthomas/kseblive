@@ -1,5 +1,7 @@
-
 <?php
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
   include 'connection.php';
   include 'engheader.php';
 
@@ -161,4 +163,9 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'engfooter.php'; ?>
+            <?php include 'engfooter.php'; }
+  else
+  {
+  Header("location:../index.php");
+  }
+?>

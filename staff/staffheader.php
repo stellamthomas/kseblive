@@ -102,6 +102,8 @@
                         <h6 class="collapse-header">Consumer details</h6>
                         <a class="collapse-item" href="addbills.php">Add Bills</a>
                         <a class="collapse-item" href="viewbills.php">View Bills</a>
+                        <a class="collapse-item" href="noncontactbills.php">Non-Contact Bills</a>
+                        <a class="collapse-item" href="viewnonbills.php">View Non-Contact Bills</a>
                     </div>
                 </div>
             </li>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
   include 'connection.php';
   include 'lmheader.php';
 
@@ -10,7 +13,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">KSEB Staff Work</h1>
+                    <h1 class="h3 mb-2 text-gray-800">KSEB Lineman Work</h1>
                     <p class="mb-4"></p>
 
                     <!-- DataTales Example -->
@@ -97,4 +100,9 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            <?php include 'lmfooter.php'; ?>
+            <?php include 'lmfooter.php'; }
+  else
+  {
+  Header("location:../index.php");
+  }
+?>

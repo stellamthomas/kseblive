@@ -1,8 +1,8 @@
 <?php
- 	include 'connection.php';
-  	session_start();
-	if(isset($_COOKIE['logined']) && $_COOKIE['logined']==1)
-	{
+    session_start();
+    include 'connection.php';
+    if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+    { 
 	    include 'custheader.php';
 	    include 'custbody.php';
 	    include 'mainfooter.php';

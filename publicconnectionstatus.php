@@ -3,7 +3,7 @@ session_start();
 include 'connection.php';
 
     include 'mainheader.php'; ?>
-
+    <script src="validation/statuscheck.js"></script>
       <section class="section section-top section-full">
 
       <!-- Cover -->
@@ -25,19 +25,23 @@ include 'connection.php';
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			               				<input type="text" name="appid" class="form-control input-sm" placeholder="Application ID">
+			               				<input type="text" name="appid" class="form-control input-sm" placeholder="Application ID" id="pincode" onkeyup="distPin()">
+                  <span style="color: red;font-size: 14px" id="f8"></span>
+
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			               				<input type="text" name="phno" class="form-control input-sm" placeholder="Phone Number">
+			               				<input type="text" name="phno" class="form-control input-sm" placeholder="Phone Number" id="phone" onkeyup="phoneUser()">
+                  <span style="color: red;font-size: 14px" id="f5"></span>
+
 			    					</div>
 			    				</div>
 
 			    			</div>
 
 
-			    			<input type="submit" value="Check Status" class="btn btn-info btn-block" onclick="return checkpConstatus()"> 
+			    			<input type="submit" value="Check Status" class="btn btn-info btn-block" onclick="return checkAll()"> 
 
 			    		</form>
 

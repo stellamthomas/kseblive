@@ -1,10 +1,9 @@
 <?php
-  session_start();
-  include 'connection.php';
-  if(isset($_COOKIE['logined']) && $_COOKIE['logined']==1)
-  {
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
+	include 'connection.php';
   include 'custheader.php'; 
-  include 'connection.php';
 
   $lkey = $_COOKIE['lkey'];
   $sql="select * from tb_customer inner join tb_login on tb_login.id=tb_customer.loginid where loginid='".$lkey."'";
@@ -14,7 +13,7 @@
   {
     
 ?>
-
+    <script src="validation/consumerregupdate.js"></script>
       <section class="section section-top section-full">
 
       <!-- Cover -->
@@ -36,12 +35,14 @@
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			               				<input type="text" name="fname" class="form-control input-sm" placeholder="First Name" value="<?php echo $row['fname']; ?>">
+			               				<input type="text" name="fname" class="form-control input-sm" placeholder="First Name" value="<?php echo $row['fname']; ?>" id="fname" onkeyup="firstName()">
+									<span style="color: red;font-size: 14px" id="f1"></span>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" name="lname"  class="form-control input-sm" placeholder="Last Name" value="<?php echo $row['lname']; ?>">
+			    						<input type="text" name="lname"  class="form-control input-sm" placeholder="Last Name" value="<?php echo $row['lname']; ?>"  id="lname" onkeyup="lastName()">
+									<span style="color: red;font-size: 14px" id="f2"></span>
 			    					</div>
 			    				</div>
 			    			</div>
@@ -50,13 +51,15 @@
 			    				<input type="email" name="email"  class="form-control input-sm" placeholder="Email Address" value="<?php echo $row['username']; ?>" readonly>
 			    			</div>
 			    			<div class="form-group">
-			    				<textarea rows="2" class="form-control input-sm" name="address" placeholder="Address"><?php echo $row['address']; ?></textarea>
+			    				<textarea rows="2" class="form-control input-sm" name="address" placeholder="Address" id="address" onkeyup="addrUser()"><?php echo $row['address']; ?></textarea>
+			    				<span style="color: red;font-size: 14px" id="f4"></span>
 			    			</div>
 
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			               				<input type="text" name="phno" class="form-control input-sm" placeholder="Phone Number" value="<?php echo $row['phno']; ?>">
+			               				<input type="text" name="phno" class="form-control input-sm" placeholder="Phone Number" value="<?php echo $row['phno']; ?>" id="phone" onkeyup="phoneUser()">
+									<span style="color: red;font-size: 14px" id="f5"></span>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
@@ -80,24 +83,26 @@
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			               				<select class="form-control bfh-states" name="district" data-country="US" data-state="CA" >
+			               				<select class="form-control bfh-states" name="district" data-country="US" data-state="CA" id="district" onclick="distUser()">
 			               					<option value="null">Select District</option>
 			               					<option value="Trivandrum" <?=$row['district'] == 'Trivandrum' ? ' selected="selected"' : '';?>>Trivandrum</option>
 			               					<option value="Kollam" <?=$row['district'] == 'Kollam' ? ' selected="selected"' : '';?>>Kollam</option>
 			               					<option value="Idukki" <?=$row['district'] == 'Idukki' ? ' selected="selected"' : '';?>>Idukki</option>
 			               					<option value="Kottayam" <?=$row['district'] == 'Kottayam' ? ' selected="selected"' : '';?>>Kottayam</option>
 			               				</select>
+			               				<span style="color: red;font-size: 14px" id="f7"></span>
 
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" name="pincode" class="form-control input-sm" placeholder="Pincode" value="<?php echo $row['pincode']; ?>">
+			    						<input type="text" name="pincode" class="form-control input-sm" placeholder="Pincode" value="<?php echo $row['pincode']; ?>" id="pincode" onkeyup="distPin()">
+									<span style="color: red;font-size: 14px" id="f8"></span>
 			    					</div>
 			    				</div>
 			    			</div>
 			    			
-			    			<input type="submit" value="Update" class="btn btn-info btn-block" onclick="return checkAll()">
+			    			<input type="submit" value="Update" class="btn btn-info btn-block" onclick="return checkAllwww()">
 			    		
 			    		</form>
 

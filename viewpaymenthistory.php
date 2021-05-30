@@ -1,9 +1,9 @@
 <?php
-  session_start();
-if(isset($_COOKIE['logined']) && $_COOKIE['logined']==1)
-{
-  include 'custheader.php'; 
+session_start();
+if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
+{ 
   include 'connection.php';
+  include 'custheader.php'; 
   $loginid = $_COOKIE['lkey'];
 
   $flag=0;
