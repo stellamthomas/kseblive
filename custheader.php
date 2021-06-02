@@ -80,24 +80,24 @@
               </span>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-facebook-f"></i>
+              <a href="https://www.facebook.com/ksebl" class="nav-link">
+                <i class="fab fa-facebook-f"></i> 
                 <span class="d-xl-none ml-2">
                   Facebook
                 </span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-twitter"></i>
+              <a href="https://twitter.com/KSEBLtd" class="nav-link">
+                <i class="fab fa-twitter"></i> 
                 <span class="d-xl-none ml-2">
                   Twitter
                 </span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="fab fa-instagram"></i>
+              <a href="https://www.instagram.com/ksebltd/" class="nav-link">
+                <i class="fab fa-instagram"></i> 
                 <span class="d-xl-none ml-2">
                   Instagram
                 </span>
