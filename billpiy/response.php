@@ -39,7 +39,7 @@ else exit(0);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>KSEBLive Bill Payment</title>
+<title>KSEBLive Additional Supply Payment</title>
 </head>
 <style type="text/css">
 	.main {
@@ -60,7 +60,7 @@ else exit(0);
     	<img src="images/payumoney.png" />
     </div>
     <div>
-    	<h3><font color="green">KSEBLive Bill Payment Success</font></h3>
+    	<h3><font color="green">KSEBLive Additional Supply Payment Success</font></h3>
     </div>
 	
     <div class="dv">

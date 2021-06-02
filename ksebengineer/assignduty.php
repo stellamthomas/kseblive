@@ -8,7 +8,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
     var f1 = document.getElementById("f1");
     var fname = document.getElementById('fname').value;
 
-    if(!/^[A-Za-z. ]{5,50}$/.test(fname))
+    if(!/^[A-Za-z. ]{5,100}$/.test(fname))
        {
          f1.textContent = "**Invalid Work Title, Minimum 5 Characters";
          var x = document.getElementById("fname");
@@ -26,7 +26,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
     var f2 = document.getElementById("f2");
     var lname = document.getElementById('lname').value;
 
-    if(!/^[A-Za-z. ]{10,50}$/.test(lname))
+    if(!/^[A-Za-z. ]{10,100}$/.test(lname))
        {
          f2.textContent = "**Invalid Work Details, Minimum 10 Characters";
          document.getElementById("lname").focus();

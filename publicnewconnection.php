@@ -18,7 +18,7 @@
         <div class="row justify-content-center align-items-center"><h2 style="text-align: center;color: white;">New Connection - Apply Online</h2>
           <div class="col-md-8 col-lg-7">
 
-          	<form role="form" name="myform" action="publicconnectionreg.php" method="post" enctype="multipart/form-data">
+          	<form role="form" name="myform" action="publicreg.php" method="post" enctype="multipart/form-data">
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">

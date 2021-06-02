@@ -167,10 +167,10 @@ function sectionUserz()
 			    						<select class="form-control bfh-states" data-country="US" data-state="CA" name="section" id="district" onclick="distUser()">
 
 			               					<option value="null">Section Code</option>
-			               					<option>001 - Mundakayam</option>
-			               					<option>002 - Kuttikanm</option>
-			               					<option>003 - Perumede</option>
-			               					<option>004 - Kanjirampally</option>
+			               					<option value="Mundakayam [5302]">001 - Mundakayam</option>
+                                      <option value="Kuttikanam [5303]">002 - Kuttikanm</option>
+                                      <option value="Perumede [5304]">003 - Perumede</option>
+                                      <option value="Kanjirampally [5305]">004 - Kanjirampally</option>
 			               				</select>
 			               				<span style="color: red;font-size: 14px" id="f6"></span>
 

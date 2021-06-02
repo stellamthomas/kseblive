@@ -167,6 +167,21 @@
                     </div>
                 </div>  
             </li> 
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#requestss"
+                    aria-expanded="true" aria-controls="request">
+                    <i class="fas fa-fw fa-plug"></i>
+                    <span>Meter Change</span>
+                </a>
+                <div id="requestss" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Services</h6>
+                        <a class="collapse-item" href="viemetercahnge.php">Requests</a>
+                    </div>
+                </div>  
+            </li> 
             
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

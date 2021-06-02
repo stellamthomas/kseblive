@@ -121,7 +121,7 @@ else {    echo "<SCRIPT type='text/javascript'>alert('No data found...');
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <a href="fpdf/toPdfBill.php?conno=<?php echo $conno; ?>&phno=<?php echo $phno ?>" download><button type="button" class="btn btn-info">Print PDF</button></a>
-        <?php if($row['status']=='0') {?><a href="addipay/index.php?t=<?php echo $row['billkey'];?>" style="text-decoration: none;">  <button class="btn btn-primary">Pay Online</button></a> <?php } 
+        <?php if($row['status']=='0') {?><a href="billpay/index.php?t=<?php echo $row['billkey'];?>" style="text-decoration: none;">  <button class="btn btn-primary">Pay Online</button></a> <?php } 
         else
         { ?>
           <a href="fpdf/toPdfBillReciept.php?t=<?php echo $row['billkey']; ?>" style="text-decoration: none;" download>  <button class="btn btn-primary">Print Reciept</button></a>

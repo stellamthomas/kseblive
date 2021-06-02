@@ -3,9 +3,9 @@ include 'connection.php';
 $string=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; 
 //echo $string."    ";
 $len=strlen($string);
-$end=$len-22;
+$end=$len-21;
 $sub = substr($string, 0, $end);
-//echo $sub;
+//echo $sub;exit;
 
 	
 
@@ -85,7 +85,7 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
     </div>
 	<form action="#" id="payment_form">
     <input type="hidden" id="udf5" name="udf5" value="BOLT_KIT_PHP7" />
-    <input type="hidden" id="surl" name="surl" value="<?php echo $sub."response.php?t=".$billkey; ?>" />
+    <input type="hidden" id="surl" name="surl" value="<?php echo $sub."/response.php?t=".$billkey; ?>" />
     <div class="dv">
     <span><input type="hidden" id="key" name="key" placeholder="Merchant Key" value="741aJTEH" /></span>
     </div>

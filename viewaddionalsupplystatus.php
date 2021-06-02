@@ -40,7 +40,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
                   <th scope="col">Date</th>
                   <th scope="col">Consumer #</th>
                   <th scope="col">Purpose</th>
-                  <th scope="col">Amount</th
+                  <th scope="col">Amount</th>
                   <th scope="col">Status</th>
                   <th scope="col">Links</th>
                 </tr>

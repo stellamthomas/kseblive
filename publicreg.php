@@ -1,8 +1,6 @@
 <?php
     session_start();
 	include 'connection.php';
-
-	$key=$_GET['t'];
 	$firstname = $_POST['fname'];
 	$lastname = $_POST['lname'];
 	$email = $_POST['email'];
@@ -17,6 +15,22 @@
 	$totalloads = $_POST['totalloads'];
 	$supplytype = $_POST['supplytype'];
 	$filename = $_FILES['aadharfile']["name"];
+
+
+	$pnch = $_POST['pnch'];
+	$vlg = $_POST['vlg'];
+	$ward = $_POST['ward'];
+	$hno = $_POST['hno'];
+	$tlk = $_POST['tlk'];
+	$rtncard = $_POST['rtncard'];
+
+	$sql = "select loginid from tb_engineerreg where section='".$section."'";
+    $result = mysqli_query($conn,$sql);
+    while ($row=mysqli_fetch_array($result))
+    {  
+    	$lkey=$row['loginid'];
+    }
+
 	
   $curdate = date('d-m-y');
 	$status = 0;
@@ -26,10 +40,15 @@
 	setcookie("emailid",$email);
 	$_SESSION['fullname'] = $firstname." ".$lastname;
 
-	$sql="UPDATE `tb_connectionreg` SET `fname`='".$firstname."',feedback='Not Viewed',`lname`='".$lastname."',`email`='".$email."',`address`='".$address."',`gender`='".$gender."',`phno`='".$phno."',`district`='".$dist."',`section`='".$section."',`pincode`='".$pin."',`supplytype`='".$supplytype."',`totalloads`='".$totalloads."',`category`='".$category."',`aadhar`='".$aadhar."',`aadharfile`='".$filename."',`status`='".$status."',`filekey`='".$filekey."' WHERE filekey='".$key."'";
-
-
-    $ex1=mysqli_query($conn,$sql);
+	$sql1="insert into tb_connectionreg(
+		fname,lname,email,address,gender,
+		phno,district,section,pincode,supplytype,
+		totalloads,category,aadhar,aadharfile,filekey,curdate,pnch,vlg,ward,hno,tlk,rtncard,status,loginid) values
+	('".$firstname."','".$lastname."','".$email."','".$address."','".$gender."','".$phno."','".$dist."','".$section."','".$pin."','".$supplytype."',
+	'".$totalloads."','".$category."','".$aadhar."',
+	'".$filename."','".$filekey."','".$curdate."','".$pnch."','".$vlg."','".$ward."','".$hno."','".$tlk."','".$rtncard."','".$status."','".$lkey."')";
+//echo $sql1;exit;
+    $ex1=mysqli_query($conn,$sql1);
 
     if($ex1)
   	{
@@ -37,7 +56,7 @@
 				mkdir($path);
 				move_uploaded_file($_FILES['aadharfile']["tmp_name"],$path."/".$_FILES['aadharfile']["name"]);
 				$_SESSION['appid'] = $filekey;
-			echo "<SCRIPT type='text/javascript'>alert('New Connection Details Updated Successfully And Mailed To Registered Mail ID.');
+			echo "<SCRIPT type='text/javascript'>alert('New Connection Request Applied Successfully.Check Your Mail For Application Details.');
        window.location.replace(\"connectionmail1.php\");
        </SCRIPT>";
   	}

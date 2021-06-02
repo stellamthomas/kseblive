@@ -22,7 +22,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
                 <form role="form" action="postcompfeedback.php?t=<?php echo $filekey; ?>" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <span style="color: red;font-size: 14px" id="f3"></span>
-                    <textarea rows="10" name="feedback" class="form-control input-sm" placeholder="Enter your feedback here." required id="address" onkeyup="addrUser()"></textarea>            
+                    <textarea rows="10" name="feedback" class="form-control input-sm" placeholder="Enter your feedback here." required id="address" onkeyup="addrUser()"></textarea><br>        
                    <input type="submit" value="Post Feedback" class="btn btn-info btn-block" onclick="return checkNewconn()" >
                 </div>
             </form>

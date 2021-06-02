@@ -11,7 +11,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
         var f20z = document.getElementById("f20z");
         var purposez = document.getElementById('purposez').value;
 
-        if (!/^[#.0-9a-zA-Z\s,-]{10,50}$/.test(purposez))
+        if (!/^[#.0-9a-zA-Z\s,-]{10,100}$/.test(purposez))
          {
            f20z.textContent = "**Invalid Feedback, Minimum 10 Characters";
            document.getElementById("purposez").focus();

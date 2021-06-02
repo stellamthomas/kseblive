@@ -110,7 +110,7 @@ else if($s==1)
 {
 ?>
     <font color="green"><b>Approved</b></font>
-    <a href="rejectbill.php?t=<?php echo $row['billkey']; ?>"><button class="btn btn-danger">Reject</button></a>
+<!--     <a href="rejectbill.php?t=<?php// echo $row['billkey']; ?>"><button class="btn btn-danger">Reject</button></a> -->
 <?php
 }
 else

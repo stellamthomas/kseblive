@@ -5,7 +5,7 @@ session_start();
     $usr=$_POST["email"];
     $en=md5($_POST["pass"]);
 
-    $sql="select id,status,utype,otpstatus from tb_login where username='".$usr."' and password='".$en."'";
+    $sql="select id,status,utype,otpstatus,delstatus from tb_login where username='".$usr."' and password='".$en."'";
 	$_SESSION['emailid'] = $usr;
 
     $result = mysqli_query($conn,$sql);
@@ -17,11 +17,11 @@ session_start();
 		$c=$row['utype'];
 		$d=$row['status'];
 		$e=$row['otpstatus'];
-
+		$f=$row['delstatus'];
 	}
   if($a>0)
 	{
-		if($d==1)
+		if($d==1 && $f==0)
 		{
 			setcookie("lkey",$b);
 			setcookie("email",$usr);
@@ -61,12 +61,12 @@ session_start();
 			}
 		}
 		else if ($d==2)
-	  {
-	    	echo "<SCRIPT type='text/javascript'>alert('Rejected by Admin.....!!'); window.location.replace(\"index.php\"); </SCRIPT>";
-	  }
-	  else
+	  	{
+	    	echo "<SCRIPT type='text/javascript'>alert('Rejected By Admin.....!!'); window.location.replace(\"index.php\"); </SCRIPT>";
+	  	}
+	  	else
 		{
-        echo "<SCRIPT type='text/javascript'>alert('Approval Pending.....!!');window.location.replace(\"index.php\"); </SCRIPT>";
+        	echo "<SCRIPT type='text/javascript'>alert('Authorization Required.....!!');window.location.replace(\"index.php\"); </SCRIPT>";
 		}
 	}
 	else

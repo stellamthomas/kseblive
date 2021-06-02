@@ -8,7 +8,7 @@ if(isset($_COOKIE['logined']) && $_COOKIE['logined']==1)
   $flag=0;
   $conno = $_POST['conno'];
   $phno = $_POST['phno'];
-  $sql="select * from tb_bill where consumerno='".$conno."' and phno='".$phno."'"; 
+  $sql="select * from tb_bill where consumerno='".$conno."' and phno='".$phno."' and total!='0' order by id desc"; 
 
   $result = mysqli_query($conn,$sql);
   while ($row=mysqli_fetch_array($result))
@@ -57,11 +57,11 @@ if(isset($_COOKIE['logined']) && $_COOKIE['logined']==1)
                   <td><?php echo $row['total']; ?></td>
                   <td><?php if($row['status']=='0')
                   {
-                    echo "Not Paid";
+                    echo "<font color='red'><b>Not Paid</b></font>";
                   }
                   else
                   {
-                    echo "Paid";
+                    echo "<font color='violet'><b>Paid</b></font>";
                   } ?></td>
                   <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter<?php echo $row['id'];?>">More
 </button><td>

@@ -28,7 +28,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
         var f20z = document.getElementById("f20z");
         var purposez = document.getElementById('purposez').value;
 
-        if (!/^[#.0-9a-zA-Z\s,-]{3,50}$/.test(purposez))
+        if (!/^[#.0-9a-zA-Z\s,-]{3,200}$/.test(purposez))
          {
            f20z.textContent = "**Invalid Notification Content";
            document.getElementById("purposez").focus();
