@@ -6,7 +6,7 @@
   $flag=0;
   $conno = $_POST['conno'];
   $phno = $_POST['phno'];
-  $sql="select * from tb_bill where consumerno='".$conno."' and phno='".$phno."'"; 
+  $sql="select * from tb_bill where consumerno='".$conno."' and phno='".$phno."' and total!='0' order by id desc"; 
 
   $result = mysqli_query($conn,$sql);
   while ($row=mysqli_fetch_array($result))
