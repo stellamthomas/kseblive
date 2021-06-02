@@ -56,7 +56,6 @@
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="navbarCollapse">  
 
-          <!-- Social -->
           <ul class="navbar-nav mr-auto">
 
             <li class="nav-item-divider">
@@ -65,7 +64,7 @@
               </span>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="https://www.facebook.com/ksebl" class="nav-link">
                 <i class="fab fa-facebook-f"></i> 
                 <span class="d-xl-none ml-2">
                   Facebook
@@ -73,7 +72,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="https://twitter.com/KSEBLtd" class="nav-link">
                 <i class="fab fa-twitter"></i> 
                 <span class="d-xl-none ml-2">
                   Twitter
@@ -81,7 +80,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="https://www.instagram.com/ksebltd/" class="nav-link">
                 <i class="fab fa-instagram"></i> 
                 <span class="d-xl-none ml-2">
                   Instagram
