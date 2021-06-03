@@ -107,7 +107,7 @@ function sectionUserz()
 
 		if(!/^[1-9]{1}$/.test(districtszz))
 	     {
-	       f6szz.textContent = "**Input Total Days Needed, Min : 9Days";
+	       f6szz.textContent = "**Input Total Days Needed, Max : 9Days";
 	       document.getElementById("districtszz").focus();
 	       return false;
 	     }
