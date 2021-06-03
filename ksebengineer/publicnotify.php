@@ -71,7 +71,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
                             <option value="null">Notification Type</option>
                             <option value="0">Public</option>
                             <option value="1">Consumer</option>
-                            <option value="2">Staffs</option>
+                            
                         </select>
                         <span style="color: red;font-size: 14px" id="f7"></span>
                     </div>
