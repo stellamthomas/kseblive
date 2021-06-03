@@ -19,17 +19,17 @@
     $mail->Host       = "smtp.gmail.com";
 
     $mail->IsHTML(true);
-    $mail->AddAddress("anuragkadakkal@gmail.com", "Anurag Kadakkal");
+    $mail->AddAddress($_SESSION['emailtoverify'], "");
     $mail->SetFrom("otpforfree@gmail.com", "KL-FREEOTP");
-    $mail->Subject = "OTP - Live";
+    $mail->Subject = "OTP - KSEBLive";
 
     $k1=md5(microtime());
     $k2=substr($k1,0,8);
 
-    $content = "Your Complaint Id is <b>".$k2."</b>";
+    $content = "Your OTP for One Time Login is <b>".$k2."</b>";
 
     $_SESSION['otp'] = $k2;
-    $_SESSION['email'] = "anuragkadakkal@gmail.com";
+    $_SESSION['email'] = $_SESSION['emailtoverify'];
 
     $mail->MsgHTML($content);
     if(!$mail->Send())
