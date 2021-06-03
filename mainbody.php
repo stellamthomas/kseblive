@@ -53,12 +53,11 @@
              Kerala State Electricity Board Ltd (KSEBLtd) is a public sector undertaking under the Government of Kerala, India, that generates,transmits and distributes the electricity supply in the state. Established in 1957, the agency comes under the authority of the Department of Power. It has been registered under Indian companies act during January 2011
             </p>
 
-            <!-- Button 
-            <p class="text-center mb-0" data-toggle="animation" data-animation="fadeUp" data-animation-order="3" data-animation-trigger="load">
-              <a href="quickpay.php"  class="btn btn-outline-primary text-white">
+           <p class="text-center mb-0" data-toggle="animation" data-animation="fadeUp" data-animation-order="3" data-animation-trigger="load">
+              <a href="billview.php"  class="btn btn-outline-primary text-white">
                 Quick Pay
               </a>
-            </p> -->
+            </p>
 
           </div>
         </div> <!-- / .row -->
