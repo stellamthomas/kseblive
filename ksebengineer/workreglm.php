@@ -28,7 +28,7 @@
 
   if($ex2)
 	{
-   echo "<SCRIPT type='text/javascript'>alert('Work Added.');window.location.replace(\"viewassignduty.php\");</SCRIPT>";
+   echo "<SCRIPT type='text/javascript'>alert('Work Added.');window.location.replace(\"viewassigndutylm.php\");</SCRIPT>";
 	}
 	else
 	{

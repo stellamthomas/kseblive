@@ -62,7 +62,7 @@ if(isset($_SESSION['logined']) && $_SESSION['logined']==1)
                                             <td><?php echo $row['conn']; ?></td>
                                             <td><?php echo $row['fn']." ".$row['ln']; ?></td>
                                             <td><?php echo $row['addr']; ?></td>
-                                            <td><?php
+                                            <td><?php $init=$row['initialread'];
 
 $s=$row['approvestatus'];                                              
 if($s==0)

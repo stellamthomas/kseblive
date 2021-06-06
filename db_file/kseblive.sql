@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2021 at 06:28 PM
+-- Generation Time: Jun 06, 2021 at 10:26 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -41,11 +41,7 @@ CREATE TABLE `tb_addsupplyreport` (
 --
 
 INSERT INTO `tb_addsupplyreport` (`rpid`, `rpkey`, `rpdate`, `rpamt`, `rpreqkey`, `loginid`) VALUES
-(2, 'a0fd46ab', '2019-03-21', 200, '5ce2322d', 99),
-(3, 'cf1929a7', '2024-03-21', 200, '5ce2322d', 99),
-(4, '579414ac', '2021-04-21', 200, '12dea908', 99),
-(5, '40fe4087', '2021-04-21', 200, '12dea908', 99),
-(6, '10971543', '2010-05-21', 200, 'a722a035', 99);
+(1, 'c6fa1555', '2006-06-21', 200, '7066a1eb', 6);
 
 -- --------------------------------------------------------
 
@@ -78,8 +74,7 @@ CREATE TABLE `tb_addsupplyrequest` (
 --
 
 INSERT INTO `tb_addsupplyrequest` (`supid`, `supname`, `supconno`, `supsection`, `supphno`, `suppurpose`, `supstatus`, `suppaymentstatus`, `supdate`, `fdate`, `tdate`, `tdays`, `total`, `loginid`, `supkey`, `delstatus`, `supfeedback`) VALUES
-(6, 'Stella M Thomas', '6116943646190', 'Mundakayam [5302]', '9645023651', 'Roof Works', '1', '0', '2021-05-11', '2021-05-13', '2021-05-30', '2', '180', 99, 'b998ef79', '0', 'Approved'),
-(7, 'Stella M Thomas', '6116943646190', 'Mundakayam [5302]', '9789786789', 'Gates and Doors Work', '1', '1', '2021-05-10', '2021-05-28', '2021-05-30', '2', '140', 99, 'a722a035', '0', 'Approved');
+(1, 'Stella M Thomas', '4181810607483', 'Mundakayam [5302]', '9645234567', 'Agriculture Works', '1', '1', '2021-06-06', '2021-06-09', '2021-06-11', '2', '290', 6, '7066a1eb', '0', 'Approved');
 
 -- --------------------------------------------------------
 
@@ -89,7 +84,7 @@ INSERT INTO `tb_addsupplyrequest` (`supid`, `supname`, `supconno`, `supsection`,
 
 CREATE TABLE `tb_bill` (
   `id` int(11) NOT NULL,
-  `billkey` varchar(10) NOT NULL,
+  `billkey` varchar(8) NOT NULL,
   `billdate` date NOT NULL,
   `duedate` date NOT NULL,
   `dcdate` date NOT NULL,
@@ -103,17 +98,19 @@ CREATE TABLE `tb_bill` (
   `phno` varchar(10) NOT NULL,
   `status` enum('0','1') NOT NULL,
   `staffid` int(11) NOT NULL,
-  `engid` int(11) NOT NULL
+  `engid` int(11) NOT NULL,
+  `nonstatus` enum('0','1','','') NOT NULL DEFAULT '0',
+  `meterfile` varchar(255) DEFAULT NULL,
+  `approvestatus` enum('0','1','2','3') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_bill`
 --
 
-INSERT INTO `tb_bill` (`id`, `billkey`, `billdate`, `duedate`, `dcdate`, `initialread`, `finalread`, `unitsused`, `fixedcharge`, `energycharge`, `total`, `consumerno`, `phno`, `status`, `staffid`, `engid`) VALUES
-(6, 'db13f82f8c', '2021-05-10', '2021-05-23', '2021-05-31', '1600', '1800', '200', '120', '8', '1720', '2448283865927', '9645023651', '1', 105, 101),
-(7, '02c7112821', '2021-05-10', '2021-05-27', '2021-05-30', '1678', '1890', '212', '120', '8', '1816', '2448283865928', '9645023651', '0', 105, 101),
-(8, '45b3f53192', '2021-05-10', '2021-05-13', '2021-05-19', '1345', '1890', '545', '120', '8', '4480', '2448283865927', '9645023651', '0', 105, 101);
+INSERT INTO `tb_bill` (`id`, `billkey`, `billdate`, `duedate`, `dcdate`, `initialread`, `finalread`, `unitsused`, `fixedcharge`, `energycharge`, `total`, `consumerno`, `phno`, `status`, `staffid`, `engid`, `nonstatus`, `meterfile`, `approvestatus`) VALUES
+(1, '7d412c32', '2021-06-06', '2021-06-10', '2021-06-17', '34567', '34667', '100', '120', '8', '920', '4181810607483', '9645234567', '1', 8, 7, '0', NULL, '0'),
+(3, '005779e4', '2021-06-06', '2021-07-10', '2021-06-17', '34667', '34777', '110', '120', '8', '1000', '4181810607483', '9645234567', '1', 8, 7, '1', 'IMG_20210530_094523 (1) (1) (2).jpg', '2');
 
 -- --------------------------------------------------------
 
@@ -137,17 +134,8 @@ CREATE TABLE `tb_billpayreport` (
 --
 
 INSERT INTO `tb_billpayreport` (`payid`, `paykey`, `paydate`, `payamt`, `payconno`, `payphno`, `paybillkey`, `loginid`) VALUES
-(15, 'af5639a02d', '2019-03-21', 800, '2448283865927', '9562781951', 'f7c58712bd', 99),
-(16, '3811d566e7', '2019-03-21', 200, '2448283865927', '9562781951', 'aa01813e19', 99),
-(17, '3bc170c807', '2024-03-21', 800, '2448283865927', '9562781951', 'f7c58712bd', 99),
-(18, '29a1168f36', '2024-03-21', 200, '2448283865927', '9562781951', 'aa01813e19', 99),
-(19, 'a85d84535f', '2024-03-21', 200, '2448283865927', '9562781951', 'aa01813e19', 99),
-(20, 'd5f44083c7', '2024-03-21', 800, '2448283865928', '9562781951', 'f7c58712bd', 0),
-(21, '9b05d6a02a', '2024-03-21', 800, '2448283865928', '9562781951', 'f7c58712bd', 0),
-(22, '0805b74088', '2024-03-21', 800, '2448283865928', '9562781951', 'f7c58712bd', 99),
-(23, 'b6bb1a7502', '2024-03-21', 200, '2448283865928', '9562781951', 'aa01813e19', 99),
-(24, '467bd7919a', '2024-03-21', 800, '2448283865928', '9562781951', 'f7c58712bd', 101),
-(25, '022d207515', '2010-05-21', 1720, '2448283865927', '9645023651', 'db13f82f8c', 99);
+(1, 'fbbd481c65', '2006-06-21', 920, '4181810607483', '9645234567', '7d412c32', 7),
+(2, 'b1f757f42c', '2006-06-21', 1000, '4181810607483', '9645234567', '005779e4', 6);
 
 -- --------------------------------------------------------
 
@@ -164,13 +152,6 @@ CREATE TABLE `tb_card` (
   `cname` varchar(50) NOT NULL,
   `cbal` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tb_card`
---
-
-INSERT INTO `tb_card` (`cid`, `ckey`, `cno`, `ccvc`, `cexp`, `cname`, `cbal`) VALUES
-(1, 'aa01813e19', '1234123412341234', '123', '2023-03-29', 'Stella M Thomas', 49800);
 
 -- --------------------------------------------------------
 
@@ -198,10 +179,9 @@ CREATE TABLE `tb_complaints` (
 --
 
 INSERT INTO `tb_complaints` (`id`, `name`, `section`, `comtype`, `phno`, `comdesc`, `status`, `trackid`, `curdate`, `feedback`, `cutype`, `loginid`) VALUES
-(32, 'Stella M', 'Mundakayam [5302]', 'No Power Supply', '9562781951', 'Broken Post', '0', '02b493a4', '2021-01-27', NULL, '0', 85),
-(38, '', 'Mundakayam [5302]', 'Cable Broken', '', 'Cable broken- Accident.', '1', '7fa532c4', '2021-05-10', 'Get back to u soon', '1', 99),
-(39, '', 'Mundakayam [5302]', 'Cable Broken', '', 'Cable broken due to heavy rain.', '1', 'a7b57b9b', '2021-05-10', 'okay.', '2', 99),
-(48, '', 'Mundakayam [5302]', 'Cable Broken', '9645023651', 'Cable Broken - Accident Happended in Mundakayam Town.', '1', 'ce8b7491', '2021-05-10', 'Correct it Soon.', '2', 99);
+(1, '', 'Mundakayam [5302]', 'Cable Broken', '7867878988', 'Post broken at 16th mile.', '1', 'ae180f50', '2021-06-06', 'correct it soon.', '2', 6),
+(2, 'Stella M Thomas', 'Mundakayam [5302]', 'No Power Supply', '9756767777', 'Power supply is not in my house for the last 3hours.', '1', '48a3e3fb', '2021-06-06', 'Okay, correct it soon. Please wait.', '0', 6),
+(3, '', 'Mundakayam [5302]', 'Voltage High/Low', '', 'Voltage fluctuation in this region.', '0', 'f6466735', '2021-06-06', NULL, '1', 6);
 
 -- --------------------------------------------------------
 
@@ -244,11 +224,7 @@ CREATE TABLE `tb_connectionreg` (
 --
 
 INSERT INTO `tb_connectionreg` (`connid`, `fname`, `lname`, `email`, `address`, `gender`, `phno`, `district`, `section`, `pincode`, `supplytype`, `totalloads`, `category`, `aadhar`, `aadharfile`, `filekey`, `curdate`, `feedback`, `pnch`, `vlg`, `ward`, `hno`, `tlk`, `rtncard`, `status`, `loginid`, `conno`) VALUES
-(44, 'Stella', 'M', 'stellamthomas2021@mca.ajce.in', 'Muthuplackal House', 'Male', '9645023651', 'Idukki', 'Mundakayam [5302]', '695614', '3 Phase', '1200', 'Agriculture', '944171304193', 'config.inc.php.SAMPLE', '1dfed7b0', '2021-04-21', 'Approved - Consumer# Generated', '', '', '', '', '', '', '4', 101, '2448283865927'),
-(46, 'Abhishek', 'A', 'stellamthomas2021@mca.ajce.in', 'Abhi Bhavan', 'Male', '9645023651', 'Kottayam', 'Mundakayam [5302]', '695614', '3 Phase', '2200', 'Commercial', '944171304192', 'captcha.html', '2ec2de88', '2022-04-21', 'Approved - Consumer# Generated', '', '', '', '', '', '', '4', 101, '2448283865928'),
-(47, 'Stella', 'M Thomas', 'stellamthomas2021@mca.ajce.in', 'Muthuplackal House', 'Female', '9645000000', 'Idukki', 'Mundakayam [5302]', '695614', '1 Phase', '1200', 'Commercial', '944171304193', 'captcha.html', '97fefcf6', '2022-04-21', 'Approve soon.\r\n', '', '', '', '', '', '', '2', 101, NULL),
-(50, 'Stella', 'M Thomas', 'stellamthomas2021@mca.ajce.in', 'Muthuplacka House', 'Female', '9562781951', 'Idukki', 'Mundakayam [5302]', '678567', '3 Phase', '1200', 'Commercial', '944171304193', 'KSEBLive.pdf', 'a37e2c70', '2010-05-21', 'Approved - Consumer# Generated', 'Mundakayam', 'Mundakayam Village', 'ward 5', '25', 'Mundakayam', 'APL', '4', 101, '6116943646190'),
-(51, 'Stella ', 'N', 'stellamthomas2021@mca.ajce.in', 'Stella Villa', 'Male', '9645000000', 'Idukki', 'Mundakayam [5302]', '567890', '3 Phase', '1200', 'Agriculture', '944171307890', 'KSEBLive.pdf', 'f625631e', '2010-05-21', NULL, 'Mundakayam', 'Mundakayam', 'ward 5', '25', 'Mundakayam', 'APL', '0', 101, NULL);
+(1, 'Stella', 'M Thomas', 'stellamthomas1997@gmail.com', 'Muthuplackal House', 'Female', '9645234567', 'Idukki', 'Mundakayam [5302]', '567890', '3 Phase', '1200', 'Commercial', '944171397888', 'KSEBLive_Abstract_New.pdf', '92c48265', '2006-06-21', 'Approved - Consumer# Generated', 'Mundakayam', 'Mundakayam', '2', '12', 'Mundakayam', 'APL', '4', 7, '4181810607483');
 
 -- --------------------------------------------------------
 
@@ -270,15 +246,7 @@ CREATE TABLE `tb_connotify` (
 --
 
 INSERT INTO `tb_connotify` (`connotid`, `conno`, `connotkey`, `connotdesc`, `connotdate`, `loginid`) VALUES
-(11, '2448283865927', '41abc008', 'CFL 50$ for 1.', '2022-04-21', 101),
-(12, '2448283865928', 'a30ea94e', '20CFL Bulbs @ 50$ each. Ofer Avilable on 21 April 2021', '2022-04-21', 101),
-(13, '2448283865927', '2330bba6', 'Notification Checking', '2022-04-21', 101),
-(14, '2448283865927', '3fe1e9dd', 'testing', '2022-04-21', 101),
-(15, '2448283865927', '4a620707', 'testing', '2022-04-21', 101),
-(16, '2448283865927', 'a592c89f', 'Testing Again', '2022-04-21', 101),
-(17, '2448283865927', 'e669c465', 'hai testing', '2022-04-21', 101),
-(18, '2448283865927', '74c651ab', 'hai again testing\r\n', '2022-04-21', 101),
-(19, '2448283865927', '9cca852f', 'testtttttttt', '2022-04-21', 101);
+(1, '4181810607483', '7628e324', 'Please pay the bill on or before DC date.', '2006-06-21', 7);
 
 -- --------------------------------------------------------
 
@@ -303,7 +271,7 @@ CREATE TABLE `tb_customer` (
 --
 
 INSERT INTO `tb_customer` (`id`, `fname`, `lname`, `address`, `phno`, `gender`, `district`, `pincode`, `loginid`) VALUES
-(65, 'Stella', 'M Thomas', 'muthuplackal', '9562781951', 'Female', 'Kollam', '685509', 99);
+(1, 'Stella', 'M Thomas', 'Muthuplackal House', '9562781951', 'Female', 'Idukki', '695614', 6);
 
 -- --------------------------------------------------------
 
@@ -331,8 +299,7 @@ CREATE TABLE `tb_engineerreg` (
 --
 
 INSERT INTO `tb_engineerreg` (`engid`, `engkey`, `fname`, `lname`, `address`, `gender`, `phno`, `district`, `section`, `pincode`, `curdate`, `loginid`) VALUES
-(22, 'aa01813e19', 'biju', 'nilavelil', 'nilavelil', 'Male', '7098675467', 'Kottayam', 'Kuttikanam [5303]', '685509', '2030-01-21', 98),
-(24, 'f87ebddbac', 'thomas', 'ms', 'Muthuplackal House', 'Male', '9562781951', 'Idukki', 'Mundakayam [5302]', '685509', '2030-01-21', 101);
+(1, '31c3079ca9', 'Thomas', 'Terance', 'Thomas Vill', 'Male', '9876567898', 'Idukki', 'Mundakayam [5302]', '567890', '2006-06-21', 7);
 
 -- --------------------------------------------------------
 
@@ -356,13 +323,6 @@ CREATE TABLE `tb_jobs` (
   `jstatus` enum('0','1','2','3','4') NOT NULL,
   `loginid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tb_jobs`
---
-
-INSERT INTO `tb_jobs` (`jid`, `jkey`, `jtitle`, `jqual`, `jsalary`, `jdesc`, `jdistrict`, `jsection`, `jcurdate`, `jlastdate`, `jtotvacancy`, `jfeedback`, `jstatus`, `loginid`) VALUES
-(1, 'ajI36792DD', 'Driver', 'Heavy Driving Licence', '1000/day', 'Need 24*7 Availability', 'Idukki', 'Kuttikanam [5303]	', '2020-11-24', '2020-12-10', 2, 'Not Possible.', '2', 35);
 
 -- --------------------------------------------------------
 
@@ -391,7 +351,7 @@ CREATE TABLE `tb_linemanreg` (
 --
 
 INSERT INTO `tb_linemanreg` (`lmid`, `lmkey`, `fname`, `lname`, `address`, `gender`, `phno`, `district`, `section`, `pincode`, `curdate`, `engid`, `loginid`) VALUES
-(1, 'bee199db49', 'Stella', 'Lineman', 'Abhi Villa', 'Male', '9645089890', 'Idukki', 'Mundakayam [5302]', '123456', '2010-05-21', 101, 108);
+(1, '2b8bda35ea', 'Lineman', 'A', 'Lineman Vill', 'Male', '7867676767', 'Idukki', 'Mundakayam [5302]', '567890', '2006-06-21', 7, 9);
 
 -- --------------------------------------------------------
 
@@ -414,11 +374,11 @@ CREATE TABLE `tb_login` (
 --
 
 INSERT INTO `tb_login` (`id`, `username`, `password`, `status`, `utype`, `otpstatus`, `delstatus`) VALUES
-(20, 'admin@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '0', '1', '0'),
-(99, 'stellamthomas1997@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '1', '1', '0'),
-(101, 'stellamthomas2021@mca.ajce.in', '751cb3f4aa17c36186f4856c8982bf27', '1', '2', '1', '0'),
-(105, 'staff1@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '3', '1', '0'),
-(108, 'stellalineman@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '4', '1', '0');
+(1, 'admin@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '0', '0', '0'),
+(6, 'stellamthomas1997@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '1', '1', '0'),
+(7, 'stellamthomas2021@mca.ajce.in', '751cb3f4aa17c36186f4856c8982bf27', '1', '2', '1', '0'),
+(8, 'staff@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '3', '1', '0'),
+(9, 'lineman@gmail.com', '751cb3f4aa17c36186f4856c8982bf27', '1', '4', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -445,7 +405,31 @@ CREATE TABLE `tb_meterchangerequest` (
 --
 
 INSERT INTO `tb_meterchangerequest` (`mid`, `mname`, `mconno`, `msection`, `mphno`, `mpurpose`, `mstatus`, `mdate`, `loginid`, `mkey`, `delstatus`) VALUES
-(6, 'Stella M Thomas', '1234567891234', '001 - Mundakayam', '9562781951', 'gate', '1', '2021-04-21', 99, '6fb70cf9', '1');
+(1, 'Stella M Thomas', '4181810607483', 'Mundakayam [5302]', '9645234567', 'Meter not working.', '2', '2021-06-06', 6, '77f9c185', '1'),
+(2, 'Stella M Thomas', '4181810607483', 'Mundakayam [5302]', '9645023651', 'Meter not working properly.', '1', '2021-06-06', 6, '34f7dff6', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_noncontactbill`
+--
+
+CREATE TABLE `tb_noncontactbill` (
+  `conbillid` int(11) NOT NULL,
+  `conno` varchar(13) NOT NULL,
+  `conbillkey` varchar(8) NOT NULL,
+  `constatus` enum('0','1','2','3') NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `curdate` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_noncontactbill`
+--
+
+INSERT INTO `tb_noncontactbill` (`conbillid`, `conno`, `conbillkey`, `constatus`, `username`, `curdate`) VALUES
+(1, '4181810607483', '644d84cd', '1', 'stellamthomas1997@gmail.com', '06 Jun 2021'),
+(2, '4181810607483', '005779e4', '3', 'stellamthomas1997@gmail.com', '06 Jun 2021');
 
 -- --------------------------------------------------------
 
@@ -468,12 +452,8 @@ CREATE TABLE `tb_notify` (
 --
 
 INSERT INTO `tb_notify` (`notid`, `notkey`, `notdesc`, `notdate`, `notstatus`, `isview`, `loginid`) VALUES
-(2, 'ajy84jf7', 'Pay bills as soon as possible', '2021-03-19', '1', '1', 99),
-(4, 'ayuxhuyr', 'CFL bulls available at 50$', '2021-03-19', '0', '1', 99),
-(5, 'fd066953', 'Bill pay as soon as possible', '2021-04-22', '0', '1', 101),
-(6, '38922f21', 'April 31 Public Holiday', '2022-04-21', '2', '1', 101),
-(7, '4a720e47', 'Pay bills of april before 30 April.', '2022-04-21', '1', '1', 101),
-(8, 'f24e707a', 'April 31 - Working Day for All.', '2022-04-21', '2', '1', 101);
+(1, 'fe15cb7a', 'Pay the bills as early as possible before DC Date.', '2006-06-21', '0', '1', 7),
+(2, '39cf4182', '20W CFL Bulbs at 90rs.', '2006-06-21', '1', '1', 7);
 
 -- --------------------------------------------------------
 
@@ -482,7 +462,7 @@ INSERT INTO `tb_notify` (`notid`, `notkey`, `notdesc`, `notdate`, `notstatus`, `
 --
 
 CREATE TABLE `tb_staffreg` (
-  `staffid` int(11) NOT NULL DEFAULT 0,
+  `staffid` int(11) NOT NULL,
   `staffkey` varchar(10) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
@@ -502,7 +482,7 @@ CREATE TABLE `tb_staffreg` (
 --
 
 INSERT INTO `tb_staffreg` (`staffid`, `staffkey`, `fname`, `lname`, `address`, `gender`, `phno`, `district`, `section`, `pincode`, `curdate`, `engid`, `loginid`) VALUES
-(1, '4d92af1cf7', 'Stella', 'Staff', 'Staff1 Villa', 'Male', '9645000000', 'Idukki', 'Mundakayam [5302]', '695614', '2021-04-21', 101, 105);
+(1, 'ffced0da8e', 'Staff', 'A', 'Staff Bhavan', 'Female', '9645234568', 'Idukki', 'Mundakayam [5302]', '123456', '2006-06-21', 7, 8);
 
 -- --------------------------------------------------------
 
@@ -526,9 +506,8 @@ CREATE TABLE `tb_work` (
 --
 
 INSERT INTO `tb_work` (`wkid`, `wkkey`, `wktitle`, `wkdesc`, `wkdate`, `wkstatus`, `staffid`, `engid`) VALUES
-(1, '3e2a8f14f5', 'Line Broken', 'Line Broken on Mundakyam Junction.', '10-05-21', '2', 105, 101),
-(3, 'ae44c6653f', 'Cable Broken', 'Mundkayam Town', '10-05-21', '2', 105, 101),
-(5, '8fd4b1fad6', 'Post Broken', 'Accident in Mundakayam Town.', '10-05-21', '2', 108, 101);
+(1, 'd083e3cea5', 'Cable Broken', 'Cable broken at mundakayam.', '06-06-21', '2', 8, 7),
+(2, 'fd1354895a', 'Line Broken', 'At mundakayam town.', '06-06-21', '2', 9, 7);
 
 --
 -- Indexes for dumped tables
@@ -619,6 +598,12 @@ ALTER TABLE `tb_meterchangerequest`
   ADD PRIMARY KEY (`mid`);
 
 --
+-- Indexes for table `tb_noncontactbill`
+--
+ALTER TABLE `tb_noncontactbill`
+  ADD PRIMARY KEY (`conbillid`);
+
+--
 -- Indexes for table `tb_notify`
 --
 ALTER TABLE `tb_notify`
@@ -644,97 +629,109 @@ ALTER TABLE `tb_work`
 -- AUTO_INCREMENT for table `tb_addsupplyreport`
 --
 ALTER TABLE `tb_addsupplyreport`
-  MODIFY `rpid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `rpid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_addsupplyrequest`
 --
 ALTER TABLE `tb_addsupplyrequest`
-  MODIFY `supid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `supid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_bill`
 --
 ALTER TABLE `tb_bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_billpayreport`
 --
 ALTER TABLE `tb_billpayreport`
-  MODIFY `payid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `payid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_card`
 --
 ALTER TABLE `tb_card`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_complaints`
 --
 ALTER TABLE `tb_complaints`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_connectionreg`
 --
 ALTER TABLE `tb_connectionreg`
-  MODIFY `connid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `connid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_connotify`
 --
 ALTER TABLE `tb_connotify`
-  MODIFY `connotid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `connotid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_customer`
 --
 ALTER TABLE `tb_customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_engineerreg`
 --
 ALTER TABLE `tb_engineerreg`
-  MODIFY `engid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `engid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_jobs`
 --
 ALTER TABLE `tb_jobs`
-  MODIFY `jid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `jid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_linemanreg`
 --
 ALTER TABLE `tb_linemanreg`
-  MODIFY `lmid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `lmid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_login`
 --
 ALTER TABLE `tb_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_meterchangerequest`
 --
 ALTER TABLE `tb_meterchangerequest`
-  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_noncontactbill`
+--
+ALTER TABLE `tb_noncontactbill`
+  MODIFY `conbillid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_notify`
 --
 ALTER TABLE `tb_notify`
-  MODIFY `notid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `notid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_staffreg`
+--
+ALTER TABLE `tb_staffreg`
+  MODIFY `staffid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_work`
 --
 ALTER TABLE `tb_work`
-  MODIFY `wkid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `wkid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

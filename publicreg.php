@@ -53,7 +53,7 @@
     if($ex1)
   	{
 				$path="Uploads/".$filekey;
-				mkdir($path);
+				mkdir($path,0777);
 				move_uploaded_file($_FILES['aadharfile']["tmp_name"],$path."/".$_FILES['aadharfile']["name"]);
 				$_SESSION['appid'] = $filekey;
 			echo "<SCRIPT type='text/javascript'>alert('New Connection Request Applied Successfully.Check Your Mail For Application Details.');

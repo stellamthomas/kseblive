@@ -19,7 +19,7 @@
     if($result)
   	{
 		$path="Uploads/".$_GET['t'];
-		mkdir($path);
+		mkdir($path,0777);
 		move_uploaded_file($_FILES['aadharfile']["tmp_name"],$path."/".$_FILES['aadharfile']["name"]);
 		echo "<SCRIPT type='text/javascript'>alert('Bill Details Uploaded Successfully.');
       	window.location.replace(\"billupload.php\");

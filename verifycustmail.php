@@ -20,7 +20,7 @@
 
     $mail->IsHTML(true);
 
-    $mail->AddAddress($_SESSION['emailid'], "]");
+    $mail->AddAddress($_SESSION['emailid'], "");
 
     $mail->SetFrom("otpforfree@gmail.com", "KL-FREEOTP");
     $mail->Subject = "OTP - Live";
