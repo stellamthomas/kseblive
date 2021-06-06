@@ -16,13 +16,13 @@
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
-    $mail->Host       = "smtp.gmail.com";
+    $mail->Host       = "smtp.hostinger.in";
 
     $mail->IsHTML(true);
 
     $mail->AddAddress($_SESSION['emailid'], "");
 
-    $mail->SetFrom("otpforfree@gmail.com", "KL-FREEOTP");
+    $mail->SetFrom("ksebotp@kseblive.site", "KL-FREEOTP");
     $mail->Subject = "OTP - Live";
 
     $k1=md5(microtime());
@@ -36,8 +36,8 @@
     $mail->MsgHTML($content);
     if(!$mail->Send())
     {
-      //echo "Error while sending Email.";
-      //var_dump($mail);
+      echo "Error while sending Email.";
+      var_dump($mail);
     }
     else
     {

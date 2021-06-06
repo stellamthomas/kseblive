@@ -16,11 +16,11 @@
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
-    $mail->Host       = "smtp.gmail.com";
+    $mail->Host       = "smtp.hostinger.com";
 
     $mail->IsHTML(true);
     $mail->AddAddress($_SESSION['emailtoverify'], "");
-    $mail->SetFrom("otpforfree@gmail.com", "KL-FREEOTP");
+    $mail->SetFrom("ksebotp@kseblive.site", "KL-FREEOTP");
     $mail->Subject = "OTP - KSEBLive";
 
     $k1=md5(microtime());

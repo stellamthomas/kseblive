@@ -16,14 +16,14 @@
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
-    $mail->Host       = "smtp.gmail.com";
+    $mail->Host       = "smtp.hostinger.com";
 
     $email = $_SESSION['email'];
     $pass = $_SESSION['pass'];
 
     $mail->IsHTML(true);
     $mail->AddAddress($email,"");
-    $mail->SetFrom("otpforfree@gmail.com", "KL-FREEOTP");
+    $mail->SetFrom("ksebotp@kseblive.site", "KL-FREEOTP");
     $mail->Subject = "KSEB Engineer - Login Credentials";
 
    

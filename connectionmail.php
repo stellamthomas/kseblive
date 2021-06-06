@@ -16,11 +16,11 @@
     $mail->SMTPAuth   = TRUE;
     $mail->SMTPSecure = "tls";
     $mail->Port       = 587;
-    $mail->Host       = "smtp.gmail.com";
+    $mail->Host       = "smtp.hostinger.com";
 
     $mail->IsHTML(true);
     $mail->AddAddress($_COOKIE['emailid'],$_SESSION['fullname']);
-    $mail->SetFrom("otpforfree@gmail.com", "KL-KSEBLive");
+    $mail->SetFrom("ksebotp@kseblive.site", "KL-KSEBLive");
     $mail->Subject = "KSEB New Connection Details";
 
 
